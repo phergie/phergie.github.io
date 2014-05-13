@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/Evenement.html">\Evenement</a></li>
+                                                        <li><a href="../namespaces/Phergie.html">\Phergie</a></li>
+                                                        <li><a href="../namespaces/React.html">\React</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">379</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">2</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-899972240"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-899972240" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1106980191"></a>
+                                <a href="../namespaces/Evenement.html" style="margin-left: 30px; padding-left: 0">Evenement</a>
+            </div>
+            <div id="namespace-1106980191" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Evenement.EventEmitterInterface.html">EventEmitterInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Evenement.EventEmitter.html">EventEmitter</a></li>
+                                                    <li class="class"><a href="../classes/Evenement.EventEmitter2.html">EventEmitter2</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-16181806"></a>
+                                <a href="../namespaces/Phergie.html" style="margin-left: 30px; padding-left: 0">Phergie</a>
+            </div>
+            <div id="namespace-16181806" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-661194567"></a>
+                                <a href="../namespaces/Phergie.Irc.html" style="margin-left: 30px; padding-left: 0">Irc</a>
+            </div>
+            <div id="namespace-661194567" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1012742489"></a>
+                                <a href="../namespaces/Phergie.Irc.Bot.html" style="margin-left: 30px; padding-left: 0">Bot</a>
+            </div>
+            <div id="namespace-1012742489" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-343118930"></a>
+                                <a href="../namespaces/Phergie.Irc.Bot.React.html" style="margin-left: 30px; padding-left: 0">React</a>
+            </div>
+            <div id="namespace-343118930" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2059177470"></a>
+                                <a href="../namespaces/Phergie.Irc.Bot.React.PluginProcessor.html" style="margin-left: 30px; padding-left: 0">PluginProcessor</a>
+            </div>
+            <div id="namespace-2059177470" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Bot.React.PluginProcessor.PluginProcessorInterface.html">PluginProcessorInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Phergie.Irc.Bot.React.PluginProcessor.EventEmitterInjector.html">EventEmitterInjector</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Bot.React.PluginProcessor.LoggerInjector.html">LoggerInjector</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Bot.React.PluginProcessor.LoopInjector.html">LoopInjector</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Bot.React.EventEmitterAwareInterface.html">EventEmitterAwareInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Bot.React.EventQueueInterface.html">EventQueueInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Bot.React.PluginInterface.html">PluginInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Phergie.Irc.Bot.React.AbstractPlugin.html">AbstractPlugin</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Bot.React.Bot.html">Bot</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Bot.React.EventQueue.html">EventQueue</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1526518097"></a>
+                                <a href="../namespaces/Phergie.Irc.Client.html" style="margin-left: 30px; padding-left: 0">Client</a>
+            </div>
+            <div id="namespace-1526518097" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-325021856"></a>
+                                <a href="../namespaces/Phergie.Irc.Client.React.html" style="margin-left: 30px; padding-left: 0">React</a>
+            </div>
+            <div id="namespace-325021856" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Client.React.ClientInterface.html">ClientInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Client.React.LoopAccessorInterface.html">LoopAccessorInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Client.React.LoopAwareInterface.html">LoopAwareInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Phergie.Irc.Client.React.Client.html">Client</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Client.React.Exception.html">Exception</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Client.React.ReadStream.html">ReadStream</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Client.React.WriteStream.html">WriteStream</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1423064406"></a>
+                                <a href="../namespaces/Phergie.Irc.Event.html" style="margin-left: 30px; padding-left: 0">Event</a>
+            </div>
+            <div id="namespace-1423064406" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Event.CtcpEventInterface.html">CtcpEventInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Event.EventInterface.html">EventInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Event.ParserConverterInterface.html">ParserConverterInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Event.ServerEventInterface.html">ServerEventInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Event.UserEventInterface.html">UserEventInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Phergie.Irc.Event.CtcpEvent.html">CtcpEvent</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Event.Event.html">Event</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Event.ParserConverter.html">ParserConverter</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Event.ServerEvent.html">ServerEvent</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Event.UserEvent.html">UserEvent</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.ConnectionInterface.html">ConnectionInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.GeneratorInterface.html">GeneratorInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.ParserInterface.html">ParserInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Phergie.Irc.Connection.html">Connection</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Generator.html">Generator</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Parser.html">Parser</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-359891950"></a>
+                                <a href="../namespaces/React.html" style="margin-left: 30px; padding-left: 0">React</a>
+            </div>
+            <div id="namespace-359891950" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2002139111"></a>
+                                <a href="../namespaces/React.EventLoop.html" style="margin-left: 30px; padding-left: 0">EventLoop</a>
+            </div>
+            <div id="namespace-2002139111" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-120182408"></a>
+                                <a href="../namespaces/React.EventLoop.Timer.html" style="margin-left: 30px; padding-left: 0">Timer</a>
+            </div>
+            <div id="namespace-120182408" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/React.EventLoop.Timer.TimerInterface.html">TimerInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/React.EventLoop.Timer.Timer.html">Timer</a></li>
+                                                    <li class="class"><a href="../classes/React.EventLoop.Timer.Timers.html">Timers</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/React.EventLoop.LoopInterface.html">LoopInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/React.EventLoop.Factory.html">Factory</a></li>
+                                                    <li class="class"><a href="../classes/React.EventLoop.LibEventLoop.html">LibEventLoop</a></li>
+                                                    <li class="class"><a href="../classes/React.EventLoop.LibEvLoop.html">LibEvLoop</a></li>
+                                                    <li class="class"><a href="../classes/React.EventLoop.StreamSelectLoop.html">StreamSelectLoop</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1774205307"></a>
+                                <a href="../namespaces/React.Stream.html" style="margin-left: 30px; padding-left: 0">Stream</a>
+            </div>
+            <div id="namespace-1774205307" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/React.Stream.ReadableStreamInterface.html">ReadableStreamInterface</a></li>
+                                                    <li class="interface"><a href="../classes/React.Stream.StreamInterface.html">StreamInterface</a></li>
+                                                    <li class="interface"><a href="../classes/React.Stream.WritableStreamInterface.html">WritableStreamInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/React.Stream.Buffer.html">Buffer</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.BufferedSink.html">BufferedSink</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.CompositeStream.html">CompositeStream</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.ReadableStream.html">ReadableStream</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.Stream.html">Stream</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.ThroughStream.html">ThroughStream</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.Util.html">Util</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.WritableStream.html">WritableStream</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/Phergie.Irc.Bot.React.html">\Phergie\Irc\Bot\React</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\Phergie\Irc\Bot\React</small>Bot</h1>
+                    <p><em>Class for an IRC bot that reads in configuration files, connects to IRC
+servers, and configures plugins to receive events of interest from those
+servers.</em></p>
+                    
+
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_setClient" class="">setClient()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_getClient" class="">getClient()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_setConfig" class="">setConfig()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_getConfig" class="">getConfig()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_setLogger" class="">setLogger()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_getLogger" class="">getLogger()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_setParser" class="">setParser()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_getParser" class="">getParser()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_setConverter" class="">setConverter()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_getConverter" class="">getConverter()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_setEventQueue" class="">setEventQueue()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_getEventQueue" class="">getEventQueue()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_run" class="">run()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_processClientEvent" class="">processClientEvent()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_processOutgoingEvents" class="">processOutgoingEvents()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_setDependencyOverrides" class="">setDependencyOverrides()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_getConnections" class="">getConnections()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_getPlugins" class="">getPlugins()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_processPlugins" class="">processPlugins()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_getPluginProcessors" class="">getPluginProcessors()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_getDefaultPluginProcessors" class="">getDefaultPluginProcessors()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_validatePluginEvents" class="">validatePluginEvents()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_registerClientSubscribers" class="">registerClientSubscribers()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_getEventSubtype" class="">getEventSubtype()</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#method_registerPluginSubscribers" class="">registerPluginSubscribers()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#property_client" class="">$client</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#property_config" class="">$config</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#property_logger" class="">$logger</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#property_parser" class="">$parser</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#property_converter" class="">$converter</a><br />
+                                                                    <a href="../classes/Phergie.Irc.Bot.React.Bot.html#property_queue" class="">$queue</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/src.Bot.php.html"><div class="path-wrapper">src/Bot.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\Phergie\Irc\Bot\React</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\Phergie\Irc\Bot\React\Bot</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                category
+                            </th>
+                            <td>
+                                                                    <p>Phergie</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                todo
+                            </th>
+                            <td>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_client" name="property_client" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$client</h3>
+                <pre class="signature">$client : \Phergie\Irc\Client\React\Client</pre>
+                <p><em>IRC client in use by the bot</em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/Phergie.Irc.Client.React.Client.html">\Phergie\Irc\Client\React\Client</a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_config" name="property_config" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$config</h3>
+                <pre class="signature">$config : array</pre>
+                <p><em>Configuration in use by the bot</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_logger" name="property_logger" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$logger</h3>
+                <pre class="signature">$logger : \Psr\Log\LoggerInterface</pre>
+                <p><em>Logger in use by the bot, defaults to logger in use by the IRC client</em></p>
+                
+
+                                <h4>Type</h4>
+                \Psr\Log\LoggerInterface
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_parser" name="property_parser" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$parser</h3>
+                <pre class="signature">$parser : \Phergie\Irc\ParserInterface</pre>
+                <p><em>Parser for converting generated IRC commands into event objects</em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/Phergie.Irc.ParserInterface.html">\Phergie\Irc\ParserInterface</a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_converter" name="property_converter" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$converter</h3>
+                <pre class="signature">$converter : \Phergie\Irc\Event\ParserConverter</pre>
+                <p><em>Converter for event data from the IRC client&#039;s underlying parser</em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/Phergie.Irc.Event.ParserConverter.html">\Phergie\Irc\Event\ParserConverter</a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_queue" name="property_queue" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$queue</h3>
+                <pre class="signature">$queue : \Phergie\Irc\Bot\React\EventQueue</pre>
+                <p><em>Queue for events generated by plugins to be sent to servers</em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/Phergie.Irc.Bot.React.EventQueue.html">\Phergie\Irc\Bot\React\EventQueue</a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setClient" name="method_setClient" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setClient()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setClient(\Phergie\Irc\Client\React\ClientInterface <span class="argument">$client</span>)</pre>
+                <p><em>Sets the IRC client for the bot to use.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Phergie.Irc.Client.React.ClientInterface.html">\Phergie\Irc\Client\React\ClientInterface</a></td>
+                                <td>$client </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getClient" name="method_getClient" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getClient()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getClient() : \Phergie\Irc\Client\React\ClientInterface</pre>
+                <p><em>Returns the IRC client in use by the bot.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Phergie.Irc.Client.React.ClientInterface.html">\Phergie\Irc\Client\React\ClientInterface</a>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setConfig" name="method_setConfig" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setConfig()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setConfig(array <span class="argument">$config</span>)</pre>
+                <p><em>Sets the configuration to be used by the bot in its operations.</em></p>
+                <p>See config.sample.php for an example configuration file.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$config </td>
+                                <td><p>Associative array keyed by setting name</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getConfig" name="method_getConfig" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getConfig()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getConfig() : array</pre>
+                <p><em>Returns the configuration in use by the bot.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>Associative array keyed by setting name</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setLogger" name="method_setLogger" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setLogger()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setLogger(\Psr\Log\LoggerInterface <span class="argument">$logger</span>)</pre>
+                <p><em>Sets the logger in use by the bot.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Psr\Log\LoggerInterface</td>
+                                <td>$logger </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getLogger" name="method_getLogger" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getLogger()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getLogger() : \Psr\Log\LoggerInterface</pre>
+                <p><em>Returns the logger in use by the bot.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \Psr\Log\LoggerInterface
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setParser" name="method_setParser" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setParser()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setParser(\Phergie\Irc\ParserInterface <span class="argument">$parser</span>)</pre>
+                <p><em>Sets the parser for generated event data in use by the bot.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Phergie.Irc.ParserInterface.html">\Phergie\Irc\ParserInterface</a></td>
+                                <td>$parser </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getParser" name="method_getParser" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getParser()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getParser() : \Phergie\Irc\ParserInterface</pre>
+                <p><em>Returns the parser for generated event data in use by the bot.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Phergie.Irc.ParserInterface.html">\Phergie\Irc\ParserInterface</a>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setConverter" name="method_setConverter" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setConverter()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setConverter(\Phergie\Irc\Event\ParserConverterInterface <span class="argument">$converter</span>)</pre>
+                <p><em>Sets the parser converter for event data in use by the bot.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Phergie.Irc.Event.ParserConverterInterface.html">\Phergie\Irc\Event\ParserConverterInterface</a></td>
+                                <td>$converter </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getConverter" name="method_getConverter" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getConverter()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getConverter() : \Phergie\Irc\Event\ParserConverterInterface</pre>
+                <p><em>Returns the parser converter for event data in use by the bot.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Phergie.Irc.Event.ParserConverterInterface.html">\Phergie\Irc\Event\ParserConverterInterface</a>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setEventQueue" name="method_setEventQueue" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setEventQueue()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setEventQueue(\Phergie\Irc\Bot\React\EventQueueInterface <span class="argument">$queue</span>)</pre>
+                <p><em>Sets the event queue for the bot to use.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Phergie.Irc.Bot.React.EventQueueInterface.html">\Phergie\Irc\Bot\React\EventQueueInterface</a></td>
+                                <td>$queue </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getEventQueue" name="method_getEventQueue" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getEventQueue()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getEventQueue() : \Phergie\Irc\Bot\React\EventQueueInterface</pre>
+                <p><em>Returns the event queue in use by the bot.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Phergie.Irc.Bot.React.EventQueueInterface.html">\Phergie\Irc\Bot\React\EventQueueInterface</a>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_run" name="method_run" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">run()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">run()</pre>
+                <p><em>Initiates an event loop for the bot in which it will connect to servers
+and monitor those connections for events to forward to plugins.</em></p>
+                
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\RuntimeException</dt>
+                            <dd><p>if configuration is inconsistent with</p>
+<pre><code>    expected structure</code></pre></dd>
+                                                                    </dl>
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_processClientEvent" name="method_processClientEvent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">processClientEvent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">processClientEvent(string <span class="argument">$event</span>, array <span class="argument">$message</span>, \Phergie\Irc\ConnectionInterface <span class="argument">$connection</span>, \Phergie\Irc\Client\React\WriteStream <span class="argument">$write</span>)</pre>
+                <p><em>Callback to process client events. Not intended to be called from
+outside this class.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$event </td>
+                                <td><p>Received client event</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$message </td>
+                                <td><p>Parsed message</p></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/Phergie.Irc.ConnectionInterface.html">\Phergie\Irc\ConnectionInterface</a></td>
+                                <td>$connection </td>
+                                <td><p>Connection on which</p>
+<pre><code>   the event occurred</code></pre></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/Phergie.Irc.Client.React.WriteStream.html">\Phergie\Irc\Client\React\WriteStream</a></td>
+                                <td>$write </td>
+                                <td><p>Stream used to send</p>
+<pre><code>   commands to the server</code></pre></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_processOutgoingEvents" name="method_processOutgoingEvents" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">processOutgoingEvents()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">processOutgoingEvents(\Phergie\Irc\ConnectionInterface <span class="argument">$connection</span>, \Phergie\Irc\Client\React\WriteStream <span class="argument">$write</span>)</pre>
+                <p><em>Callback to process any queued outgoing events. Not intended to be
+called from outside thie class.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Phergie.Irc.ConnectionInterface.html">\Phergie\Irc\ConnectionInterface</a></td>
+                                <td>$connection </td>
+                                <td><p>Connection on which</p>
+<pre><code>   the event occurred</code></pre></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/Phergie.Irc.Client.React.WriteStream.html">\Phergie\Irc\Client\React\WriteStream</a></td>
+                                <td>$write </td>
+                                <td><p>Stream used to send</p>
+<pre><code>   commands to the server</code></pre></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setDependencyOverrides" name="method_setDependencyOverrides" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">setDependencyOverrides()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setDependencyOverrides(array <span class="argument">$config</span>)</pre>
+                <p><em>Sets dependencies from configuration.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$config </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getConnections" name="method_getConnections" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getConnections()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getConnections(array <span class="argument">$config</span>) : \Phergie\Irc\ConnectionInterface[]</pre>
+                <p><em>Extracts connections from configuration.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$config </td>
+                                <td><p>Associative array keyed by setting name</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \Phergie\Irc\ConnectionInterface[]
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPlugins" name="method_getPlugins" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getPlugins()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPlugins(array <span class="argument">$config</span>) : \Phergie\Irc\Bot\React\PluginInterface[]</pre>
+                <p><em>Extracts plugins from configuration.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$config </td>
+                                <td><p>Associative array keyed by setting name</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\RuntimeException</dt>
+                            <dd><p>if any plugin event callback is invalid</p></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \Phergie\Irc\Bot\React\PluginInterface[]
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_processPlugins" name="method_processPlugins" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">processPlugins()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">processPlugins(array <span class="argument">$plugins</span>, array <span class="argument">$processors</span>)</pre>
+                <p><em>Processes a list of plugins for use.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$plugins </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$processors </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPluginProcessors" name="method_getPluginProcessors" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getPluginProcessors()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPluginProcessors(array <span class="argument">$config</span>)</pre>
+                <p><em>Returns a list of processors for plugins.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$config </td>
+                                <td><p>Associative array keyed by setting name</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getDefaultPluginProcessors" name="method_getDefaultPluginProcessors" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getDefaultPluginProcessors()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getDefaultPluginProcessors()</pre>
+                <p><em>Returns a list of default plugin processors used when none are set via
+configuration.</em></p>
+                
+
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_validatePluginEvents" name="method_validatePluginEvents" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">validatePluginEvents()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">validatePluginEvents(\Phergie\Irc\Bot\React\PluginInterface <span class="argument">$plugin</span>)</pre>
+                <p><em>Validates a plugin&#039;s event callbacks.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Phergie.Irc.Bot.React.PluginInterface.html">\Phergie\Irc\Bot\React\PluginInterface</a></td>
+                                <td>$plugin </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\RuntimeException</dt>
+                            <dd><p>if any event callback is invalid</p></dd>
+                                                                    </dl>
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_registerClientSubscribers" name="method_registerClientSubscribers" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">registerClientSubscribers()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">registerClientSubscribers(\Phergie\Irc\Client\React\Client <span class="argument">$client</span>)</pre>
+                <p><em>Configures the client to emit events for specific types of messages.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Phergie.Irc.Client.React.Client.html">\Phergie\Irc\Client\React\Client</a></td>
+                                <td>$client </td>
+                                <td><p>Client for which to</p>
+<pre><code>   configure events</code></pre></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getEventSubtype" name="method_getEventSubtype" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getEventSubtype()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getEventSubtype(\Phergie\Irc\Event\EventInterface <span class="argument">$event</span>) : string</pre>
+                <p><em>Returns an event subtype corresponding to a given event object, used to
+generate event names when emitting events.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Phergie.Irc.Event.EventInterface.html">\Phergie\Irc\Event\EventInterface</a></td>
+                                <td>$event </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_registerPluginSubscribers" name="method_registerPluginSubscribers" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">registerPluginSubscribers()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">registerPluginSubscribers(\Phergie\Irc\Client\React\ClientInterface <span class="argument">$client</span>, \Phergie\Irc\Bot\React\PluginInterface[] <span class="argument">$plugins</span>)</pre>
+                <p><em>Registers event callbacks from plugins.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Phergie.Irc.Client.React.ClientInterface.html">\Phergie\Irc\Client\React\ClientInterface</a></td>
+                                <td>$client </td>
+                                <td><p>Client with</p>
+<pre><code>   which to register callbacks</code></pre></td>
+                            </tr>
+                                                    <tr>
+                                <td>\Phergie\Irc\Bot\React\PluginInterface[]</td>
+                                <td>$plugins </td>
+                                <td><p>Plugins from</p>
+<pre><code>   which to get callbacks</code></pre></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">Bot.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/src/Bot.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/Evenement.html">\Evenement</a></li>
+                                                                            <li><a href="../namespaces/Phergie.html">\Phergie</a></li>
+                                                                            <li><a href="../namespaces/React.html">\React</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on May 12th, 2014 at 20:08.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

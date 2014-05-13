@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/Evenement.html">\Evenement</a></li>
+                                                        <li><a href="../namespaces/Phergie.html">\Phergie</a></li>
+                                                        <li><a href="../namespaces/React.html">\React</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">379</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">2</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1713216859"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1713216859" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-645293147"></a>
+                                <a href="../namespaces/Evenement.html" style="margin-left: 30px; padding-left: 0">Evenement</a>
+            </div>
+            <div id="namespace-645293147" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Evenement.EventEmitterInterface.html">EventEmitterInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Evenement.EventEmitter.html">EventEmitter</a></li>
+                                                    <li class="class"><a href="../classes/Evenement.EventEmitter2.html">EventEmitter2</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-911692605"></a>
+                                <a href="../namespaces/Phergie.html" style="margin-left: 30px; padding-left: 0">Phergie</a>
+            </div>
+            <div id="namespace-911692605" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1696214152"></a>
+                                <a href="../namespaces/Phergie.Irc.html" style="margin-left: 30px; padding-left: 0">Irc</a>
+            </div>
+            <div id="namespace-1696214152" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1588710891"></a>
+                                <a href="../namespaces/Phergie.Irc.Bot.html" style="margin-left: 30px; padding-left: 0">Bot</a>
+            </div>
+            <div id="namespace-1588710891" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1302616332"></a>
+                                <a href="../namespaces/Phergie.Irc.Bot.React.html" style="margin-left: 30px; padding-left: 0">React</a>
+            </div>
+            <div id="namespace-1302616332" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-256778474"></a>
+                                <a href="../namespaces/Phergie.Irc.Bot.React.PluginProcessor.html" style="margin-left: 30px; padding-left: 0">PluginProcessor</a>
+            </div>
+            <div id="namespace-256778474" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Bot.React.PluginProcessor.PluginProcessorInterface.html">PluginProcessorInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Phergie.Irc.Bot.React.PluginProcessor.EventEmitterInjector.html">EventEmitterInjector</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Bot.React.PluginProcessor.LoggerInjector.html">LoggerInjector</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Bot.React.PluginProcessor.LoopInjector.html">LoopInjector</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Bot.React.EventEmitterAwareInterface.html">EventEmitterAwareInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Bot.React.EventQueueInterface.html">EventQueueInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Bot.React.PluginInterface.html">PluginInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Phergie.Irc.Bot.React.AbstractPlugin.html">AbstractPlugin</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Bot.React.Bot.html">Bot</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Bot.React.EventQueue.html">EventQueue</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1661385950"></a>
+                                <a href="../namespaces/Phergie.Irc.Client.html" style="margin-left: 30px; padding-left: 0">Client</a>
+            </div>
+            <div id="namespace-1661385950" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-909624905"></a>
+                                <a href="../namespaces/Phergie.Irc.Client.React.html" style="margin-left: 30px; padding-left: 0">React</a>
+            </div>
+            <div id="namespace-909624905" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Client.React.ClientInterface.html">ClientInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Client.React.LoopAccessorInterface.html">LoopAccessorInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Client.React.LoopAwareInterface.html">LoopAwareInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Phergie.Irc.Client.React.Client.html">Client</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Client.React.Exception.html">Exception</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Client.React.ReadStream.html">ReadStream</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Client.React.WriteStream.html">WriteStream</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2063605736"></a>
+                                <a href="../namespaces/Phergie.Irc.Event.html" style="margin-left: 30px; padding-left: 0">Event</a>
+            </div>
+            <div id="namespace-2063605736" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Event.CtcpEventInterface.html">CtcpEventInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Event.EventInterface.html">EventInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Event.ParserConverterInterface.html">ParserConverterInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Event.ServerEventInterface.html">ServerEventInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Event.UserEventInterface.html">UserEventInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Phergie.Irc.Event.CtcpEvent.html">CtcpEvent</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Event.Event.html">Event</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Event.ParserConverter.html">ParserConverter</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Event.ServerEvent.html">ServerEvent</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Event.UserEvent.html">UserEvent</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.ConnectionInterface.html">ConnectionInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.GeneratorInterface.html">GeneratorInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.ParserInterface.html">ParserInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Phergie.Irc.Connection.html">Connection</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Generator.html">Generator</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Parser.html">Parser</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1556194331"></a>
+                                <a href="../namespaces/React.html" style="margin-left: 30px; padding-left: 0">React</a>
+            </div>
+            <div id="namespace-1556194331" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-284613903"></a>
+                                <a href="../namespaces/React.EventLoop.html" style="margin-left: 30px; padding-left: 0">EventLoop</a>
+            </div>
+            <div id="namespace-284613903" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1782971788"></a>
+                                <a href="../namespaces/React.EventLoop.Timer.html" style="margin-left: 30px; padding-left: 0">Timer</a>
+            </div>
+            <div id="namespace-1782971788" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/React.EventLoop.Timer.TimerInterface.html">TimerInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/React.EventLoop.Timer.Timer.html">Timer</a></li>
+                                                    <li class="class"><a href="../classes/React.EventLoop.Timer.Timers.html">Timers</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/React.EventLoop.LoopInterface.html">LoopInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/React.EventLoop.Factory.html">Factory</a></li>
+                                                    <li class="class"><a href="../classes/React.EventLoop.LibEventLoop.html">LibEventLoop</a></li>
+                                                    <li class="class"><a href="../classes/React.EventLoop.LibEvLoop.html">LibEvLoop</a></li>
+                                                    <li class="class"><a href="../classes/React.EventLoop.StreamSelectLoop.html">StreamSelectLoop</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1384873589"></a>
+                                <a href="../namespaces/React.Stream.html" style="margin-left: 30px; padding-left: 0">Stream</a>
+            </div>
+            <div id="namespace-1384873589" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/React.Stream.ReadableStreamInterface.html">ReadableStreamInterface</a></li>
+                                                    <li class="interface"><a href="../classes/React.Stream.StreamInterface.html">StreamInterface</a></li>
+                                                    <li class="interface"><a href="../classes/React.Stream.WritableStreamInterface.html">WritableStreamInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/React.Stream.Buffer.html">Buffer</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.BufferedSink.html">BufferedSink</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.CompositeStream.html">CompositeStream</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.ReadableStream.html">ReadableStream</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.Stream.html">Stream</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.ThroughStream.html">ThroughStream</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.Util.html">Util</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.WritableStream.html">WritableStream</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/React.Stream.html">\React\Stream</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\React\Stream</small>ThroughStream</h1>
+                    <p><em></em></p>
+                    
+
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/React.Stream.ThroughStream.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/React.Stream.CompositeStream.html#method_handlePipeEvent" class="">handlePipeEvent()</a><br />
+                                                                    <a href="../classes/React.Stream.CompositeStream.html#method_isReadable" class="">isReadable()</a><br />
+                                                                    <a href="../classes/React.Stream.CompositeStream.html#method_pause" class="">pause()</a><br />
+                                                                    <a href="../classes/React.Stream.CompositeStream.html#method_resume" class="">resume()</a><br />
+                                                                    <a href="../classes/React.Stream.CompositeStream.html#method_pipe" class="">pipe()</a><br />
+                                                                    <a href="../classes/React.Stream.CompositeStream.html#method_isWritable" class="">isWritable()</a><br />
+                                                                    <a href="../classes/React.Stream.ThroughStream.html#method_write" class="">write()</a><br />
+                                                                    <a href="../classes/React.Stream.ThroughStream.html#method_end" class="">end()</a><br />
+                                                                    <a href="../classes/React.Stream.CompositeStream.html#method_close" class="">close()</a><br />
+                                                                    <a href="../classes/Evenement.EventEmitter.html#method_on" class="">on()</a><br />
+                                                                    <a href="../classes/Evenement.EventEmitter.html#method_once" class="">once()</a><br />
+                                                                    <a href="../classes/Evenement.EventEmitter.html#method_removeListener" class="">removeListener()</a><br />
+                                                                    <a href="../classes/Evenement.EventEmitter.html#method_removeAllListeners" class="">removeAllListeners()</a><br />
+                                                                    <a href="../classes/Evenement.EventEmitter.html#method_listeners" class="">listeners()</a><br />
+                                                                    <a href="../classes/Evenement.EventEmitter.html#method_emit" class="">emit()</a><br />
+                                                                    <a href="../classes/React.Stream.ThroughStream.html#method_filter" class="">filter()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/React.Stream.CompositeStream.html#property_readable" class="">$readable</a><br />
+                                                                    <a href="../classes/React.Stream.CompositeStream.html#property_writable" class="">$writable</a><br />
+                                                                    <a href="../classes/React.Stream.CompositeStream.html#property_pipeSource" class="">$pipeSource</a><br />
+                                                                    <a href="../classes/Evenement.EventEmitter.html#property_listeners" class="">$listeners</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/vendor.react.stream.React.Stream.ThroughStream.php.html"><div class="path-wrapper">vendor/react/stream/React/Stream/ThroughStream.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper"></div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                                        <div class="namespace-wrapper"><a href="../classes/Evenement.EventEmitter.html">\Evenement\EventEmitter</a></div>
+                                                                    
+                                        <div class="namespace-wrapper"><a href="../classes/React.Stream.CompositeStream.html">\React\Stream\CompositeStream</a></div>
+                                                                                                    <div class="namespace-wrapper">\React\Stream\ThroughStream</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                todo
+                            </th>
+                            <td>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_readable" name="property_readable" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$readable</h3>
+                <pre class="signature">$readable</pre>
+                <p><em></em></p>
+                
+
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/React.Stream.CompositeStream.html"><div class="path-wrapper">\React\Stream\CompositeStream</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_writable" name="property_writable" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$writable</h3>
+                <pre class="signature">$writable</pre>
+                <p><em></em></p>
+                
+
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/React.Stream.CompositeStream.html"><div class="path-wrapper">\React\Stream\CompositeStream</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_pipeSource" name="property_pipeSource" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$pipeSource</h3>
+                <pre class="signature">$pipeSource</pre>
+                <p><em></em></p>
+                
+
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/React.Stream.CompositeStream.html"><div class="path-wrapper">\React\Stream\CompositeStream</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_listeners" name="property_listeners" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$listeners</h3>
+                <pre class="signature">$listeners</pre>
+                <p><em></em></p>
+                
+
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Evenement.EventEmitter.html"><div class="path-wrapper">\Evenement\EventEmitter</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct()</pre>
+                <p><em></em></p>
+                
+
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_handlePipeEvent" name="method_handlePipeEvent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">handlePipeEvent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">handlePipeEvent( <span class="argument">$source</span>)</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$source </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/React.Stream.CompositeStream.html"><div class="path-wrapper">\React\Stream\CompositeStream</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_isReadable" name="method_isReadable" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">isReadable()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">isReadable()</pre>
+                <p><em></em></p>
+                
+
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/React.Stream.CompositeStream.html"><div class="path-wrapper">\React\Stream\CompositeStream</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_pause" name="method_pause" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">pause()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">pause()</pre>
+                <p><em></em></p>
+                
+
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/React.Stream.CompositeStream.html"><div class="path-wrapper">\React\Stream\CompositeStream</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_resume" name="method_resume" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">resume()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">resume()</pre>
+                <p><em></em></p>
+                
+
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/React.Stream.CompositeStream.html"><div class="path-wrapper">\React\Stream\CompositeStream</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_pipe" name="method_pipe" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">pipe()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">pipe(\React\Stream\WritableStreamInterface <span class="argument">$dest</span>, array <span class="argument">$options</span>)</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/React.Stream.WritableStreamInterface.html">\React\Stream\WritableStreamInterface</a></td>
+                                <td>$dest </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$options </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/React.Stream.CompositeStream.html"><div class="path-wrapper">\React\Stream\CompositeStream</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_isWritable" name="method_isWritable" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">isWritable()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">isWritable()</pre>
+                <p><em></em></p>
+                
+
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/React.Stream.CompositeStream.html"><div class="path-wrapper">\React\Stream\CompositeStream</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_write" name="method_write" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">write()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">write( <span class="argument">$data</span>)</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$data </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_end" name="method_end" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">end()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">end( <span class="argument">$data</span>)</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$data </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_close" name="method_close" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">close()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">close()</pre>
+                <p><em></em></p>
+                
+
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/React.Stream.CompositeStream.html"><div class="path-wrapper">\React\Stream\CompositeStream</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_on" name="method_on" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">on()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">on( <span class="argument">$event</span>,  <span class="argument">$listener</span>)</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$event </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$listener </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Evenement.EventEmitter.html"><div class="path-wrapper">\Evenement\EventEmitter</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_once" name="method_once" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">once()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">once( <span class="argument">$event</span>,  <span class="argument">$listener</span>)</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$event </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$listener </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Evenement.EventEmitter.html"><div class="path-wrapper">\Evenement\EventEmitter</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_removeListener" name="method_removeListener" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">removeListener()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">removeListener( <span class="argument">$event</span>,  <span class="argument">$listener</span>)</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$event </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$listener </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Evenement.EventEmitter.html"><div class="path-wrapper">\Evenement\EventEmitter</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_removeAllListeners" name="method_removeAllListeners" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">removeAllListeners()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">removeAllListeners( <span class="argument">$event</span>)</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$event </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Evenement.EventEmitter.html"><div class="path-wrapper">\Evenement\EventEmitter</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_listeners" name="method_listeners" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">listeners()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">listeners( <span class="argument">$event</span>)</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$event </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Evenement.EventEmitter.html"><div class="path-wrapper">\Evenement\EventEmitter</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_emit" name="method_emit" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">emit()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">emit( <span class="argument">$event</span>, array <span class="argument">$arguments</span>)</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$event </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$arguments </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Evenement.EventEmitter.html"><div class="path-wrapper">\Evenement\EventEmitter</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_filter" name="method_filter" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">filter()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">filter( <span class="argument">$data</span>)</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$data </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">ThroughStream.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/vendor/react/stream/React/Stream/ThroughStream.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/Evenement.html">\Evenement</a></li>
+                                                                            <li><a href="../namespaces/Phergie.html">\Phergie</a></li>
+                                                                            <li><a href="../namespaces/React.html">\React</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on May 12th, 2014 at 20:08.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

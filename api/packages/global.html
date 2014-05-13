@@ -1,0 +1,265 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>API Documentation » global</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">API Documentation</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Evenement.html"><i class="icon-th"></i> Evenement</a></li>
+<li><a href="../namespaces/Phergie.html"><i class="icon-th"></i> Phergie</a></li>
+<li><a href="../namespaces/React.html"><i class="icon-th"></i> React</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Phergie.html"><i class="icon-folder-open"></i> Phergie</a></li>
+<li><a href="../packages/global.html"><i class="icon-folder-open"></i> global</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">379</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-map-marker"></i> Packages</li>
+<li>
+<a href="../packages/global.html" title="global"><i class="icon-folder-open"></i>global</a><ul class="nav nav-list nav-packages"></ul>
+</li>
+<li class="nav-header">
+<i title="Interfaces" class="icon-custom icon-interface"></i> Interfaces</li>
+<li><a href="#StreamInterface" title="">StreamInterface</a></li>
+<li><a href="#WritableStreamInterface" title="">WritableStreamInterface</a></li>
+<li><a href="#ReadableStreamInterface" title="">ReadableStreamInterface</a></li>
+<li><a href="#TimerInterface" title="">TimerInterface</a></li>
+<li><a href="#LoopInterface" title="">LoopInterface</a></li>
+<li><a href="#EventEmitterInterface" title="">EventEmitterInterface</a></li>
+<li class="nav-header">
+<i title="Classes" class="icon-custom icon-class"></i> Classes</li>
+<li><a href="#Util" title="">Util</a></li>
+<li><a href="#Stream" title="">Stream</a></li>
+<li><a href="#WritableStream" title="">WritableStream</a></li>
+<li><a href="#BufferedSink" title="">BufferedSink</a></li>
+<li><a href="#CompositeStream" title="">CompositeStream</a></li>
+<li><a href="#Buffer" title="">Buffer</a></li>
+<li><a href="#ThroughStream" title="">ThroughStream</a></li>
+<li><a href="#ReadableStream" title="">ReadableStream</a></li>
+<li><a href="#LibEvLoop" title="">LibEvLoop</a></li>
+<li><a href="#Timer" title="">Timer</a></li>
+<li><a href="#Timers" title="">Timers</a></li>
+<li><a href="#StreamSelectLoop" title="">StreamSelectLoop</a></li>
+<li><a href="#LibEventLoop" title="">LibEventLoop</a></li>
+<li><a href="#Factory" title="">Factory</a></li>
+<li><a href="#EventEmitter" title="">EventEmitter</a></li>
+<li><a href="#EventEmitter2" title="">EventEmitter2</a></li>
+</ul>
+</div>
+<div class="span8 package-contents">
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li class="active"><a href="../packages/global.html">global</a></li>
+</li></ul>
+<div class="package-indent">
+<h3>
+<i title="Classes" class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<div id="EventEmitterInterface" class="element ajax clickable interface">
+<h1>EventEmitterInterface<a href="../classes/Evenement.EventEmitterInterface.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/Evenement.EventEmitterInterface.html" class="more">« More »</a>
+</div>
+<div id="LoopInterface" class="element ajax clickable interface">
+<h1>LoopInterface<a href="../classes/React.EventLoop.LoopInterface.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/React.EventLoop.LoopInterface.html" class="more">« More »</a>
+</div>
+<div id="TimerInterface" class="element ajax clickable interface">
+<h1>TimerInterface<a href="../classes/React.EventLoop.Timer.TimerInterface.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/React.EventLoop.Timer.TimerInterface.html" class="more">« More »</a>
+</div>
+<div id="ReadableStreamInterface" class="element ajax clickable interface">
+<h1>ReadableStreamInterface<a href="../classes/React.Stream.ReadableStreamInterface.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/React.Stream.ReadableStreamInterface.html" class="more">« More »</a>
+</div>
+<div id="StreamInterface" class="element ajax clickable interface">
+<h1>StreamInterface<a href="../classes/React.Stream.StreamInterface.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/React.Stream.StreamInterface.html" class="more">« More »</a>
+</div>
+<div id="WritableStreamInterface" class="element ajax clickable interface">
+<h1>WritableStreamInterface<a href="../classes/React.Stream.WritableStreamInterface.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/React.Stream.WritableStreamInterface.html" class="more">« More »</a>
+</div>
+<div id="EventEmitter" class="element ajax clickable class">
+<h1>EventEmitter<a href="../classes/Evenement.EventEmitter.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/Evenement.EventEmitter.html" class="more">« More »</a>
+</div>
+<div id="EventEmitter2" class="element ajax clickable class">
+<h1>EventEmitter2<a href="../classes/Evenement.EventEmitter2.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/Evenement.EventEmitter2.html" class="more">« More »</a>
+</div>
+<div id="Factory" class="element ajax clickable class">
+<h1>Factory<a href="../classes/React.EventLoop.Factory.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/React.EventLoop.Factory.html" class="more">« More »</a>
+</div>
+<div id="LibEvLoop" class="element ajax clickable class">
+<h1>LibEvLoop<a href="../classes/React.EventLoop.LibEvLoop.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/React.EventLoop.LibEvLoop.html" class="more">« More »</a>
+</div>
+<div id="LibEventLoop" class="element ajax clickable class">
+<h1>LibEventLoop<a href="../classes/React.EventLoop.LibEventLoop.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/React.EventLoop.LibEventLoop.html" class="more">« More »</a>
+</div>
+<div id="StreamSelectLoop" class="element ajax clickable class">
+<h1>StreamSelectLoop<a href="../classes/React.EventLoop.StreamSelectLoop.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/React.EventLoop.StreamSelectLoop.html" class="more">« More »</a>
+</div>
+<div id="Timer" class="element ajax clickable class">
+<h1>Timer<a href="../classes/React.EventLoop.Timer.Timer.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/React.EventLoop.Timer.Timer.html" class="more">« More »</a>
+</div>
+<div id="Timers" class="element ajax clickable class">
+<h1>Timers<a href="../classes/React.EventLoop.Timer.Timers.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/React.EventLoop.Timer.Timers.html" class="more">« More »</a>
+</div>
+<div id="Buffer" class="element ajax clickable class">
+<h1>Buffer<a href="../classes/React.Stream.Buffer.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/React.Stream.Buffer.html" class="more">« More »</a>
+</div>
+<div id="BufferedSink" class="element ajax clickable class">
+<h1>BufferedSink<a href="../classes/React.Stream.BufferedSink.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/React.Stream.BufferedSink.html" class="more">« More »</a>
+</div>
+<div id="CompositeStream" class="element ajax clickable class">
+<h1>CompositeStream<a href="../classes/React.Stream.CompositeStream.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/React.Stream.CompositeStream.html" class="more">« More »</a>
+</div>
+<div id="ReadableStream" class="element ajax clickable class">
+<h1>ReadableStream<a href="../classes/React.Stream.ReadableStream.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/React.Stream.ReadableStream.html" class="more">« More »</a>
+</div>
+<div id="Stream" class="element ajax clickable class">
+<h1>Stream<a href="../classes/React.Stream.Stream.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/React.Stream.Stream.html" class="more">« More »</a>
+</div>
+<div id="ThroughStream" class="element ajax clickable class">
+<h1>ThroughStream<a href="../classes/React.Stream.ThroughStream.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/React.Stream.ThroughStream.html" class="more">« More »</a>
+</div>
+<div id="Util" class="element ajax clickable class">
+<h1>Util<a href="../classes/React.Stream.Util.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/React.Stream.Util.html" class="more">« More »</a>
+</div>
+<div id="WritableStream" class="element ajax clickable class">
+<h1>WritableStream<a href="../classes/React.Stream.WritableStream.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/React.Stream.WritableStream.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.4.0
+</a> and<br>
+            generated on 2014-05-12T18:16:19-05:00.<br></footer></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>API Documentation » Phergie\Irc</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">API Documentation</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Evenement.html"><i class="icon-th"></i> Evenement</a></li>
+<li><a href="../namespaces/Phergie.html"><i class="icon-th"></i> Phergie</a></li>
+<li><a href="../namespaces/React.html"><i class="icon-th"></i> React</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Phergie.html"><i class="icon-folder-open"></i> Phergie</a></li>
+<li><a href="../packages/global.html"><i class="icon-folder-open"></i> global</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">379</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-map-marker"></i> Packages</li>
+<li>
+<a href="../packages/Phergie.Irc.html" title="Irc"><i class="icon-folder-open"></i>Irc</a><ul class="nav nav-list nav-packages">
+<li>
+<span class="empty-package"><i class="icon-folder-close"></i>Bot</span><ul class="nav nav-list nav-packages"><li>
+<a href="../packages/Phergie.Irc.Bot.React.html" title="React"><i class="icon-folder-open"></i>React</a><ul class="nav nav-list nav-packages"></ul>
+</li></ul>
+</li>
+<li>
+<span class="empty-package"><i class="icon-folder-close"></i>Client</span><ul class="nav nav-list nav-packages"><li>
+<a href="../packages/Phergie.Irc.Client.React.html" title="React"><i class="icon-folder-open"></i>React</a><ul class="nav nav-list nav-packages"></ul>
+</li></ul>
+</li>
+<li>
+<a href="../packages/Phergie.Irc.Event.html" title="Event"><i class="icon-folder-open"></i>Event</a><ul class="nav nav-list nav-packages"></ul>
+</li>
+</ul>
+</li>
+<li class="nav-header">
+<i title="Interfaces" class="icon-custom icon-interface"></i> Interfaces</li>
+<li><a href="#ConnectionInterface" title="Data structure for information related to a client connection per the IRC
+protocol as described in RFC 1459.">ConnectionInterface</a></li>
+<li><a href="#ParserInterface" title="Parses strings containing messages conforming to those in the IRC protocol
+as described in RFC 1459.">ParserInterface</a></li>
+<li><a href="#GeneratorInterface" title="Programmatically generates strings containing messages conforming to those
+in the IRC protocol as described in RFC 1459.">GeneratorInterface</a></li>
+<li class="nav-header">
+<i title="Classes" class="icon-custom icon-class"></i> Classes</li>
+<li><a href="#Connection" title="Canonical implementation of ConnectionInterface.">Connection</a></li>
+<li><a href="#Parser" title="Canonical implementation of ParserInterface.">Parser</a></li>
+<li><a href="#Generator" title="Canonical implementation of GeneratorInterface.">Generator</a></li>
+<li><a href="#Exception" title="React client exception.">Exception</a></li>
+</ul>
+</div>
+<div class="span8 package-contents">
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/Phergie.html">Phergie</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/Phergie.Irc.html">Irc</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<h3>
+<i title="Classes" class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<div id="ConnectionInterface" class="element ajax clickable interface">
+<h1>ConnectionInterface<a href="../classes/Phergie.Irc.ConnectionInterface.html">¶</a>
+</h1>
+<p class="short_description">Data structure for information related to a client connection per the IRC
+protocol as described in RFC 1459.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.ConnectionInterface.html" class="more">« More »</a>
+</div>
+<div id="GeneratorInterface" class="element ajax clickable interface">
+<h1>GeneratorInterface<a href="../classes/Phergie.Irc.GeneratorInterface.html">¶</a>
+</h1>
+<p class="short_description">Programmatically generates strings containing messages conforming to those
+in the IRC protocol as described in RFC 1459.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.GeneratorInterface.html" class="more">« More »</a>
+</div>
+<div id="ParserInterface" class="element ajax clickable interface">
+<h1>ParserInterface<a href="../classes/Phergie.Irc.ParserInterface.html">¶</a>
+</h1>
+<p class="short_description">Parses strings containing messages conforming to those in the IRC protocol
+as described in RFC 1459.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.ParserInterface.html" class="more">« More »</a>
+</div>
+<div id="Exception" class="element ajax clickable class">
+<h1>Exception<a href="../classes/Phergie.Irc.Client.React.Exception.html">¶</a>
+</h1>
+<p class="short_description">React client exception.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Client.React.Exception.html" class="more">« More »</a>
+</div>
+<div id="Connection" class="element ajax clickable class">
+<h1>Connection<a href="../classes/Phergie.Irc.Connection.html">¶</a>
+</h1>
+<p class="short_description">Canonical implementation of ConnectionInterface.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Connection.html" class="more">« More »</a>
+</div>
+<div id="Generator" class="element ajax clickable class">
+<h1>Generator<a href="../classes/Phergie.Irc.Generator.html">¶</a>
+</h1>
+<p class="short_description">Canonical implementation of GeneratorInterface.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Generator.html" class="more">« More »</a>
+</div>
+<div id="Parser" class="element ajax clickable class">
+<h1>Parser<a href="../classes/Phergie.Irc.Parser.html">¶</a>
+</h1>
+<p class="short_description">Canonical implementation of ParserInterface.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Parser.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/Phergie.html">Phergie</a></li>
+<li>
+<span class="divider">\</span><a href="../packages/Phergie.Irc.html">Irc</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/Phergie.Irc.Bot.html">Bot</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/Phergie.html">Phergie</a></li>
+<li>
+<span class="divider">\</span><a href="../packages/Phergie.Irc.html">Irc</a>
+</li>
+<li>
+<span class="divider">\</span><a href="../packages/Phergie.Irc.Bot.html">Bot</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/Phergie.Irc.Bot.React.html">React</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<h3>
+<i title="Classes" class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<div id="EventEmitterAwareInterface" class="element ajax clickable interface">
+<h1>EventEmitterAwareInterface<a href="../classes/Phergie.Irc.Bot.React.EventEmitterAwareInterface.html">¶</a>
+</h1>
+<p class="short_description">Interface for injection of an event emitter.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Bot.React.EventEmitterAwareInterface.html" class="more">« More »</a>
+</div>
+<div id="EventQueueInterface" class="element ajax clickable interface">
+<h1>EventQueueInterface<a href="../classes/Phergie.Irc.Bot.React.EventQueueInterface.html">¶</a>
+</h1>
+<p class="short_description">Interface for a queue to contain commands issued by plugins to be sent to
+servers so as to allow for manipulation of those commands by plugins prior
+to their transmission.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Bot.React.EventQueueInterface.html" class="more">« More »</a>
+</div>
+<div id="PluginInterface" class="element ajax clickable interface">
+<h1>PluginInterface<a href="../classes/Phergie.Irc.Bot.React.PluginInterface.html">¶</a>
+</h1>
+<p class="short_description">Minimum interface for a plugin implementation.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Bot.React.PluginInterface.html" class="more">« More »</a>
+</div>
+<div id="PluginProcessorInterface" class="element ajax clickable interface">
+<h1>PluginProcessorInterface<a href="../classes/Phergie.Irc.Bot.React.PluginProcessor.PluginProcessorInterface.html">¶</a>
+</h1>
+<p class="short_description">Interface for an operation to be performed on a plugin once it's been
+loaded.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Bot.React.PluginProcessor.PluginProcessorInterface.html" class="more">« More »</a>
+</div>
+<div id="AbstractPlugin" class="element ajax clickable class">
+<h1>AbstractPlugin<a href="../classes/Phergie.Irc.Bot.React.AbstractPlugin.html">¶</a>
+</h1>
+<p class="short_description">Base class for plugins.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Bot.React.AbstractPlugin.html" class="more">« More »</a>
+</div>
+<div id="Bot" class="element ajax clickable class">
+<h1>Bot<a href="../classes/Phergie.Irc.Bot.React.Bot.html">¶</a>
+</h1>
+<p class="short_description">Class for an IRC bot that reads in configuration files, connects to IRC
+servers, and configures plugins to receive events of interest from those
+servers.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Bot.React.Bot.html" class="more">« More »</a>
+</div>
+<div id="EventQueue" class="element ajax clickable class">
+<h1>EventQueue<a href="../classes/Phergie.Irc.Bot.React.EventQueue.html">¶</a>
+</h1>
+<p class="short_description">Queue to contain commands issued by plugins to be sent to servers so as to
+allow for manipulation of those commands by plugins prior to their
+transmission.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Bot.React.EventQueue.html" class="more">« More »</a>
+</div>
+<div id="EventEmitterInjector" class="element ajax clickable class">
+<h1>EventEmitterInjector<a href="../classes/Phergie.Irc.Bot.React.PluginProcessor.EventEmitterInjector.html">¶</a>
+</h1>
+<p class="short_description">Plugin processor that injects the plugin with the bot's event emitter if
+possible.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Bot.React.PluginProcessor.EventEmitterInjector.html" class="more">« More »</a>
+</div>
+<div id="LoggerInjector" class="element ajax clickable class">
+<h1>LoggerInjector<a href="../classes/Phergie.Irc.Bot.React.PluginProcessor.LoggerInjector.html">¶</a>
+</h1>
+<p class="short_description">Plugin processor that injects the plugin with the bot's logger if possible.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Bot.React.PluginProcessor.LoggerInjector.html" class="more">« More »</a>
+</div>
+<div id="LoopInjector" class="element ajax clickable class">
+<h1>LoopInjector<a href="../classes/Phergie.Irc.Bot.React.PluginProcessor.LoopInjector.html">¶</a>
+</h1>
+<p class="short_description">Plugin processor that injects the plugin with the event loop of the bot's
+client if possible.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Bot.React.PluginProcessor.LoopInjector.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/Phergie.html">Phergie</a></li>
+<li>
+<span class="divider">\</span><a href="../packages/Phergie.Irc.html">Irc</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/Phergie.Irc.Client.html">Client</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/Phergie.html">Phergie</a></li>
+<li>
+<span class="divider">\</span><a href="../packages/Phergie.Irc.html">Irc</a>
+</li>
+<li>
+<span class="divider">\</span><a href="../packages/Phergie.Irc.Client.html">Client</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/Phergie.Irc.Client.React.html">React</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<h3>
+<i title="Classes" class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<div id="ClientInterface" class="element ajax clickable interface">
+<h1>ClientInterface<a href="../classes/Phergie.Irc.Client.React.ClientInterface.html">¶</a>
+</h1>
+<p class="short_description">Interface for an IRC client implementation.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Client.React.ClientInterface.html" class="more">« More »</a>
+</div>
+<div id="LoopAccessorInterface" class="element ajax clickable interface">
+<h1>LoopAccessorInterface<a href="../classes/Phergie.Irc.Client.React.LoopAccessorInterface.html">¶</a>
+</h1>
+<p class="short_description">Interface for accesing an event loop.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Client.React.LoopAccessorInterface.html" class="more">« More »</a>
+</div>
+<div id="LoopAwareInterface" class="element ajax clickable interface">
+<h1>LoopAwareInterface<a href="../classes/Phergie.Irc.Client.React.LoopAwareInterface.html">¶</a>
+</h1>
+<p class="short_description">Interface for injection of an event loop.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Client.React.LoopAwareInterface.html" class="more">« More »</a>
+</div>
+<div id="Client" class="element ajax clickable class">
+<h1>Client<a href="../classes/Phergie.Irc.Client.React.Client.html">¶</a>
+</h1>
+<p class="short_description">IRC client implementation based on the React component library.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Client.React.Client.html" class="more">« More »</a>
+</div>
+<div id="ReadStream" class="element ajax clickable class">
+<h1>ReadStream<a href="../classes/Phergie.Irc.Client.React.ReadStream.html">¶</a>
+</h1>
+<p class="short_description">Stream that extracts IRC messages from data piped to it and emits them as
+'irc' events.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Client.React.ReadStream.html" class="more">« More »</a>
+</div>
+<div id="WriteStream" class="element ajax clickable class">
+<h1>WriteStream<a href="../classes/Phergie.Irc.Client.React.WriteStream.html">¶</a>
+</h1>
+<p class="short_description">Stream that sends IRC messages to a server.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Client.React.WriteStream.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li><a href="../packages/Phergie.html">Phergie</a></li>
+<li>
+<span class="divider">\</span><a href="../packages/Phergie.Irc.html">Irc</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../packages/Phergie.Irc.Event.html">Event</a>
+</li>
+</li></ul>
+<div class="package-indent">
+<h3>
+<i title="Classes" class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<div id="CtcpEventInterface" class="element ajax clickable interface">
+<h1>CtcpEventInterface<a href="../classes/Phergie.Irc.Event.CtcpEventInterface.html">¶</a>
+</h1>
+<p class="short_description">Interface for a CTCP event sent by a user.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Event.CtcpEventInterface.html" class="more">« More »</a>
+</div>
+<div id="EventInterface" class="element ajax clickable interface">
+<h1>EventInterface<a href="../classes/Phergie.Irc.Event.EventInterface.html">¶</a>
+</h1>
+<p class="short_description">Interface for a base event class.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Event.EventInterface.html" class="more">« More »</a>
+</div>
+<div id="ParserConverterInterface" class="element ajax clickable interface">
+<h1>ParserConverterInterface<a href="../classes/Phergie.Irc.Event.ParserConverterInterface.html">¶</a>
+</h1>
+<p class="short_description">Interface for a class that converts data for a single event output by a
+parser implementing the \Phergie\Irc\ParserInterface interface into an event
+object.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Event.ParserConverterInterface.html" class="more">« More »</a>
+</div>
+<div id="ServerEventInterface" class="element ajax clickable interface">
+<h1>ServerEventInterface<a href="../classes/Phergie.Irc.Event.ServerEventInterface.html">¶</a>
+</h1>
+<p class="short_description">Interface for an event sent by a server.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Event.ServerEventInterface.html" class="more">« More »</a>
+</div>
+<div id="UserEventInterface" class="element ajax clickable interface">
+<h1>UserEventInterface<a href="../classes/Phergie.Irc.Event.UserEventInterface.html">¶</a>
+</h1>
+<p class="short_description">Interface for an event sent by a user.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Event.UserEventInterface.html" class="more">« More »</a>
+</div>
+<div id="CtcpEvent" class="element ajax clickable class">
+<h1>CtcpEvent<a href="../classes/Phergie.Irc.Event.CtcpEvent.html">¶</a>
+</h1>
+<p class="short_description">Class for a CTCP event sent by a user.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Event.CtcpEvent.html" class="more">« More »</a>
+</div>
+<div id="Event" class="element ajax clickable class">
+<h1>Event<a href="../classes/Phergie.Irc.Event.Event.html">¶</a>
+</h1>
+<p class="short_description">Base class for events.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Event.Event.html" class="more">« More »</a>
+</div>
+<div id="ParserConverter" class="element ajax clickable class">
+<h1>ParserConverter<a href="../classes/Phergie.Irc.Event.ParserConverter.html">¶</a>
+</h1>
+<p class="short_description">Converts data for a single event output by a parser implementing the
+\Phergie\Irc\ParserInterface interface into an event object.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Event.ParserConverter.html" class="more">« More »</a>
+</div>
+<div id="ServerEvent" class="element ajax clickable class">
+<h1>ServerEvent<a href="../classes/Phergie.Irc.Event.ServerEvent.html">¶</a>
+</h1>
+<p class="short_description">Class for an event sent by a server.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Event.ServerEvent.html" class="more">« More »</a>
+</div>
+<div id="UserEvent" class="element ajax clickable class">
+<h1>UserEvent<a href="../classes/Phergie.Irc.Event.UserEvent.html">¶</a>
+</h1>
+<p class="short_description">Class for an event sent by a user.</p>
+<div class="details collapse"></div>
+<a href="../classes/Phergie.Irc.Event.UserEvent.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.4.0
+</a> and<br>
+            generated on 2014-05-12T18:16:19-05:00.<br></footer></div>
+</div>
+</body>
+</html>
