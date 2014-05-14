@@ -20,7 +20,9 @@ if [ "$TEMPLATE" == "" ]; then
     TEMPLATE="--template=clean"
 fi
 
+dirpaths=`echo $BOT_PATH/{src,vendor/{evenement,phergie,psr,react}} | sed 's/ /,/g'`
+
 $PHPDOC $TEMPLATE \
-    -d $BOT_PATH/src,$BOT_PATH/vendor/phergie,$BOT_PATH/vendor/react,$BOT_PATH/vendor/evenement \
+    -d $dirpaths \
     --ignore "*/tests/*" \
     -t $BASE_TARGET/
