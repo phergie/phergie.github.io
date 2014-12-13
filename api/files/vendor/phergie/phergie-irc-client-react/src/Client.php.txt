@@ -16,9 +16,13 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Psr\Log\LoggerInterface;
 use Phergie\Irc\ConnectionInterface;
+use React\Dns\Resolver\Factory;
+use React\Dns\Resolver\Resolver;
 use React\EventLoop\LoopInterface;
 use React\EventLoop\Timer\TimerInterface;
+use React\Promise\Deferred;
 use React\Stream\Stream;
+use React\Stream\DuplexStreamInterface;
 
 /**
  * IRC client implementation based on the React component library.
@@ -53,6 +57,23 @@ class Client extends EventEmitter implements
     protected $tickInterval = 0.2;
 
     /**
+     * Connector used to establish SSL connections
+     *
+     * @var \React\SocketClient\SecureConnector
+     */
+    protected $secureConnector;
+
+    /**
+     * @var \React\Dns\Resolver\Resolver
+     */
+    protected $resolver;
+
+    /**
+     * @var string
+     */
+    protected $dnsServer = '8.8.8.8';
+
+    /**
      * Sets the event loop dependency.
      *
      * @param \React\EventLoop\LoopInterface $loop
@@ -73,6 +94,53 @@ class Client extends EventEmitter implements
             $this->loop = \React\EventLoop\Factory::create();
         }
         return $this->loop;
+    }
+
+    /**
+     * Sets the DNS Resolver.
+     *
+     * @param Resolver $resolver
+     */
+    public function setResolver(Resolver $resolver = null)
+    {
+        $this->resolver = $resolver;
+    }
+
+    /**
+     * Get the DNS Resolver, if one isn't set in instance will be created.
+     *
+     * @return Resolver
+     */
+    public function getResolver()
+    {
+        if ($this->resolver instanceof Resolver) {
+            return $this->resolver;
+        }
+
+        $factory = new Factory();
+        $this->resolver = $factory->createCached($this->getDnsServer(), $this->getLoop());
+
+        return $this->resolver;
+    }
+
+    /**
+     * Set the DNS server to use when looking up IP's
+     *
+     * @param string $dnsServer
+     */
+    public function setDnsServer($dnsServer = '8.8.8.8')
+    {
+        $this->dnsServer = $dnsServer;
+    }
+
+    /**
+     * Returns the configured DNS server
+     *
+     * @return string
+     */
+    public function getDnsServer()
+    {
+        return $this->dnsServer;
     }
 
     /**
@@ -127,6 +195,28 @@ class Client extends EventEmitter implements
     }
 
     /**
+     * Derives the transport for a given connection.
+     *
+     * @param \Phergie\Irc\ConnectionInterface $connection
+     * @return string Transport usable in the URI for a stream
+     */
+    protected function getTransport(ConnectionInterface $connection)
+    {
+        return (string) $connection->getOption('transport') ?: 'tcp';
+    }
+
+    /**
+     * Extracts the value of the force-ipv4 option from a given connection.
+     *
+     * @param \Phergie\Irc\ConnectionInterface $connection
+     * @return boolean TRUE to force use of IPv4, FALSE otherwise
+     */
+    protected function getForceIpv4Flag(ConnectionInterface $connection)
+    {
+        return (boolean) $connection->getOption('force-ipv4') ?: false;
+    }
+
+    /**
      * Derives a remote for a given connection.
      *
      * @param \Phergie\Irc\ConnectionInterface $connection
@@ -134,14 +224,22 @@ class Client extends EventEmitter implements
      */
     protected function getRemote(ConnectionInterface $connection)
     {
-        $transport = $connection->getOption('transport');
-        if ($transport === null) {
-            $transport = 'tcp';
-        }
         $hostname = $connection->getServerHostname();
         $port = $connection->getServerPort();
-        $remote = $transport . '://' . $hostname . ':' . $port;
-        return $remote;
+
+        $deferred = new Deferred();
+        $this->getResolver()
+            ->resolve($hostname)
+            ->then(
+                function($ip) use($deferred, $port) {
+                    $deferred->resolve('tcp://' . $ip . ':' . $port);
+                },
+                function($error) use ($deferred) {
+                    $deferred->reject($error);
+                }
+            );
+
+        return $deferred->promise();
     }
 
     /**
@@ -153,7 +251,7 @@ class Client extends EventEmitter implements
     protected function getContext(ConnectionInterface $connection)
     {
         $context = array();
-        if ($connection->getOption('force-ipv4')) {
+        if ($this->getForceIpv4Flag($connection)) {
             $context['bindto'] = '0.0.0.0:0';
         }
         $context = array('socket' => $context);
@@ -165,7 +263,7 @@ class Client extends EventEmitter implements
      *
      * @param resource $socket Socket for the connection to the server
      * @param \React\EventLoop\LoopInterface $loop Event loop
-     * @return \React\Stream\Stream
+     * @return \React\Stream\DuplexStreamInterface
      */
     protected function getStream($socket)
     {
@@ -234,8 +332,8 @@ class Client extends EventEmitter implements
         if (!$this->logger) {
             // See testGetLoggerRunFromStdin
             // @codeCoverageIgnoreStart
-            $stderr = defined('STDERR') && !is_null(STDERR)
-                ? STDERR : fopen('php://stderr', 'w');
+            $stderr = defined('\STDERR') && !is_null(\STDERR)
+                ? \STDERR : fopen('php://stderr', 'w');
             // @codeCoverageIgnoreEnd
             $handler = new StreamHandler($stderr, Logger::DEBUG);
             $handler->setFormatter(new LineFormatter("%datetime% %level_name% %message% %context%\n"));
@@ -314,15 +412,15 @@ class Client extends EventEmitter implements
      * Returns a callback for when a connection is terminated, whether
      * explicitly by the bot or server or as a result of loss of connectivity.
      *
-     * @param \React\Stream\Stream $stream Stream representing the connection
-     *        to the server
+     * @param \React\Stream\DuplexStreamInterface $stream Stream representing the
+     *        connection to the server
      * @param \Phergie\Irc\ConnectionInterface $connection Terminated connection
      * @param \React\EventLoop\Timer\TimerInterface $timer Timer used to handle
      *        asynchronously queued events on the connection, which must be
      *        cancelled
      * @return callable
      */
-    protected function getEndCallback(Stream $stream, ConnectionInterface $connection, TimerInterface $timer)
+    protected function getEndCallback(DuplexStreamInterface $stream, ConnectionInterface $connection, TimerInterface $timer)
     {
         $client = $this;
         $logger = $this->getLogger();
@@ -357,12 +455,13 @@ class Client extends EventEmitter implements
      *
      * @param \Phergie\Irc\ConnectionInterface $connection Metadata for the
      *        connection over which messages are being exchanged
-     * @param \React\Stream\Stream $stream Stream representing the connection
+     * @param \React\Stream\DuplexStreamInterface $stream Stream representing the
+     *        connection
      *        to the server
      * @param \Phergie\Irc\Client\React\WriteStream $write Stream used to
      *        send events to the server
      */
-    protected function configureStreams(ConnectionInterface $connection, Stream $stream, WriteStream $write)
+    protected function configureStreams(ConnectionInterface $connection, DuplexStreamInterface $stream, WriteStream $write)
     {
         $timer = $this->addPeriodicTimer($this->getTickInterval(), $this->getTickCallback($write, $connection));
         $read = $this->getReadStream($connection);
@@ -401,6 +500,125 @@ class Client extends EventEmitter implements
     }
 
     /**
+     * Emits a connection error event.
+     *
+     * @param \Exception $exception
+     * @param \Phergie\Irc\ConnectionInterface $connection
+     */
+    protected function emitConnectionError(\Exception $exception, ConnectionInterface $connection)
+    {
+        $this->emit(
+            'connect.error',
+            array(
+                $exception->getMessage(),
+                $connection,
+                $this->getLogger()
+            )
+        );
+    }
+
+    /**
+     * Initializes an unsecured connection.
+     *
+     * @param \Phergie\Irc\ConnectionInterface $connection
+     */
+    protected function addUnsecuredConnection(ConnectionInterface $connection)
+    {
+        $this->getRemote($connection)->then(
+            function($remote) use($connection) {
+                $this->initializeConnection($remote, $connection);
+            },
+            function($error) use($connection) {
+                $this->emitConnectionError($error, $connection);
+            }
+        );
+    }
+
+    /**
+     * Returns a connector for establishing SSL connections.
+     *
+     * @return \React\SocketClient\SecureConnector
+     */
+    protected function getSecureConnector()
+    {
+        if (!$this->secureConnector) {
+            $loop = $this->getLoop();
+            $connector = new \React\SocketClient\Connector($loop, $this->getResolver());
+            $this->secureConnector = new \React\SocketClient\SecureConnector($connector, $loop);
+        }
+        return $this->secureConnector;
+    }
+
+    /**
+     * Initializes a secured connection.
+     *
+     * @param \Phergie\Irc\ConnectionInterface $connection
+     * @throws \Phergie\Irc\Client\React\Exception if the SSL transport and
+     *         forcing IPv4 usage are both enabled
+     */
+    protected function addSecureConnection(ConnectionInterface $connection)
+    {
+        // @see https://github.com/reactphp/socket-client/issues/4
+        if ($this->getForceIpv4Flag($connection)) {
+            throw new Exception(
+                'Using the SSL transport and IPv4 together is not currently supported',
+                Exception::ERR_CONNECTION_STATE_UNSUPPORTED
+            );
+        }
+
+        $hostname = $connection->getServerHostname();
+        $port = $connection->getServerPort();
+
+        $this->getSecureConnector()
+            ->create($hostname, $port)
+            ->then(
+                function(DuplexStreamInterface $stream) use ($connection) {
+                    $this->initializeStream($stream, $connection);
+                    $this->emit('connect.after.each', array($connection, $connection->getOption('write')));
+                }
+            );
+    }
+
+    /**
+     * Configures an established stream for a given connection.
+     *
+     * @param \React\Stream\DuplexStreamInterface $stream
+     * @param \Phergie\Irc\ConnectionInterface $connection
+     */
+    protected function initializeStream(DuplexStreamInterface $stream, ConnectionInterface $connection)
+    {
+        try {
+            $connection->setOption('stream', $stream);
+            $write = $this->getWriteStream($connection);
+            $connection->setOption('write', $write);
+            $this->configureStreams($connection, $stream, $write);
+            $this->identifyUser($connection, $write);
+        } catch (\Exception $e) {
+            $this->emitConnectionError($e, $connection);
+        }
+    }
+
+    /**
+     * Initializes an added connection.
+     *
+     * @param string $remote
+     * @param \Phergie\Irc\ConnectionInterface $connection
+     */
+    protected function initializeConnection($remote, $connection)
+    {
+        try {
+            $context = $this->getContext($connection);
+            $socket = $this->getSocket($remote, $context);
+            $stream = $this->getStream($socket);
+            $this->initializeStream($stream, $connection);
+        } catch (\Exception $e) {
+            $this->emitConnectionError($e, $connection);
+        }
+
+        $this->emit('connect.after.each', array($connection, $connection->getOption('write')));
+    }
+
+    /**
      * Initializes an IRC connection.
      *
      * Emits connect.before.each and connect.after.each events before and
@@ -415,28 +633,11 @@ class Client extends EventEmitter implements
     {
         $this->emit('connect.before.each', array($connection));
 
-        // Establish the socket connection
-        $remote = $this->getRemote($connection);
-        $context = $this->getContext($connection);
-        try {
-            $socket = $this->getSocket($remote, $context);
-            $stream = $this->getStream($socket);
-
-            $write = $this->getWriteStream($connection);
-            $this->configureStreams($connection, $stream, $write);
-            $this->identifyUser($connection, $write);
-        } catch (Exception $e) {
-            $this->emit(
-                'connect.error',
-                array(
-                    $e->getMessage(),
-                    $connection,
-                    $this->getLogger()
-                )
-            );
+        if ($this->getTransport($connection) === 'ssl') {
+            $this->addSecureConnection($connection);
+        } else {
+            $this->addUnsecuredConnection($connection);
         }
-
-        $this->emit('connect.after.each', array($connection));
     }
 
     /**
@@ -456,10 +657,18 @@ class Client extends EventEmitter implements
         });
 
         $this->emit('connect.before.all', array($connections));
+
         foreach ($connections as $connection) {
             $this->addConnection($connection);
         }
-        $this->emit('connect.after.all', array($connections));
+
+        $writes = array_map(
+            function($connection) {
+                return $connection->getOption('write');
+            },
+            $connections
+        );
+        $this->emit('connect.after.all', array($connections, $writes));
 
         $this->getLoop()->run();
     }

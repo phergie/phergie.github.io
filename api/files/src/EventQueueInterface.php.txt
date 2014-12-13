@@ -23,8 +23,8 @@ interface EventQueueInterface extends GeneratorInterface, \Iterator, \Countable
     /**
      * Removes and returns an event from the front of the queue.
      *
-     * @return \Phergie\Irc\Event\EventInterface|null
-     * Removed event or null if the queue is empty
+     * @return \Phergie\Irc\Event\EventInterface|null Removed event or null if
+     *         the queue is empty
      */
     public function extract();
 }

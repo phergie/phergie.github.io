@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+        <script type="text/javascript">
+        function loadExternalCodeSnippets() {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+                var src = pre.getAttribute('data-src');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist or is empty';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        $(document).ready(function(){
+            loadExternalCodeSnippets();
+        });
+        $('#source-view').on('shown', function () {
+            loadExternalCodeSnippets();
+        })
+    </script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/Evenement.html">\Evenement</a></li>
+                                                        <li><a href="../namespaces/Phergie.html">\Phergie</a></li>
+                                                        <li><a href="../namespaces/Psr.html">\Psr</a></li>
+                                                        <li><a href="../namespaces/React.html">\React</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">721</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">3</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-748290859"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-748290859" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1945080367"></a>
+                                <a href="../namespaces/Evenement.html" style="margin-left: 30px; padding-left: 0">Evenement</a>
+            </div>
+            <div id="namespace-1945080367" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Evenement.EventEmitterInterface.html">EventEmitterInterface</a></li>
+                                                                            <li class="trait"><a href="../classes/Evenement.EventEmitterTrait.html">EventEmitterTrait</a></li>
+                                                                            <li class="class"><a href="../classes/Evenement.EventEmitter.html">EventEmitter</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-106266691"></a>
+                                <a href="../namespaces/Phergie.html" style="margin-left: 30px; padding-left: 0">Phergie</a>
+            </div>
+            <div id="namespace-106266691" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1980775578"></a>
+                                <a href="../namespaces/Phergie.Irc.html" style="margin-left: 30px; padding-left: 0">Irc</a>
+            </div>
+            <div id="namespace-1980775578" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1366888229"></a>
+                                <a href="../namespaces/Phergie.Irc.Bot.html" style="margin-left: 30px; padding-left: 0">Bot</a>
+            </div>
+            <div id="namespace-1366888229" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1100283468"></a>
+                                <a href="../namespaces/Phergie.Irc.Bot.React.html" style="margin-left: 30px; padding-left: 0">React</a>
+            </div>
+            <div id="namespace-1100283468" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-136583803"></a>
+                                <a href="../namespaces/Phergie.Irc.Bot.React.PluginProcessor.html" style="margin-left: 30px; padding-left: 0">PluginProcessor</a>
+            </div>
+            <div id="namespace-136583803" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Bot.React.PluginProcessor.PluginProcessorInterface.html">PluginProcessorInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Phergie.Irc.Bot.React.PluginProcessor.EventEmitterInjector.html">EventEmitterInjector</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Bot.React.PluginProcessor.LoggerInjector.html">LoggerInjector</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Bot.React.PluginProcessor.LoopInjector.html">LoopInjector</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Bot.React.EventEmitterAwareInterface.html">EventEmitterAwareInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Bot.React.EventQueueInterface.html">EventQueueInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Bot.React.PluginInterface.html">PluginInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Phergie.Irc.Bot.React.AbstractPlugin.html">AbstractPlugin</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Bot.React.Bot.html">Bot</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Bot.React.EventQueue.html">EventQueue</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Bot.React.EventQueuePriority.html">EventQueuePriority</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-153037878"></a>
+                                <a href="../namespaces/Phergie.Irc.Client.html" style="margin-left: 30px; padding-left: 0">Client</a>
+            </div>
+            <div id="namespace-153037878" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-425533768"></a>
+                                <a href="../namespaces/Phergie.Irc.Client.React.html" style="margin-left: 30px; padding-left: 0">React</a>
+            </div>
+            <div id="namespace-425533768" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Client.React.ClientInterface.html">ClientInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Client.React.LoopAccessorInterface.html">LoopAccessorInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Client.React.LoopAwareInterface.html">LoopAwareInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Phergie.Irc.Client.React.Client.html">Client</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Client.React.Exception.html">Exception</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Client.React.ReadStream.html">ReadStream</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Client.React.WriteStream.html">WriteStream</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1176496888"></a>
+                                <a href="../namespaces/Phergie.Irc.Event.html" style="margin-left: 30px; padding-left: 0">Event</a>
+            </div>
+            <div id="namespace-1176496888" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Event.CtcpEventInterface.html">CtcpEventInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Event.EventConverterInterface.html">EventConverterInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Event.EventInterface.html">EventInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Event.ParserConverterInterface.html">ParserConverterInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Event.ServerEventInterface.html">ServerEventInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.Event.UserEventInterface.html">UserEventInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Phergie.Irc.Event.CtcpEvent.html">CtcpEvent</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Event.Event.html">Event</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Event.EventConverter.html">EventConverter</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Event.ParserConverter.html">ParserConverter</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Event.ServerEvent.html">ServerEvent</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Event.UserEvent.html">UserEvent</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.ConnectionInterface.html">ConnectionInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.GeneratorInterface.html">GeneratorInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Phergie.Irc.ParserInterface.html">ParserInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Phergie.Irc.Connection.html">Connection</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Generator.html">Generator</a></li>
+                                                    <li class="class"><a href="../classes/Phergie.Irc.Parser.html">Parser</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-953483048"></a>
+                                <a href="../namespaces/Psr.html" style="margin-left: 30px; padding-left: 0">Psr</a>
+            </div>
+            <div id="namespace-953483048" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-836957993"></a>
+                                <a href="../namespaces/Psr.Log.html" style="margin-left: 30px; padding-left: 0">Log</a>
+            </div>
+            <div id="namespace-836957993" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1464545448"></a>
+                                <a href="../namespaces/Psr.Log.Test.html" style="margin-left: 30px; padding-left: 0">Test</a>
+            </div>
+            <div id="namespace-1464545448" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Psr.Log.Test.DummyTest.html">DummyTest</a></li>
+                                                    <li class="class"><a href="../classes/Psr.Log.Test.LoggerInterfaceTest.html">LoggerInterfaceTest</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Psr.Log.LoggerAwareInterface.html">LoggerAwareInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Psr.Log.LoggerInterface.html">LoggerInterface</a></li>
+                                                                            <li class="trait"><a href="../classes/Psr.Log.LoggerAwareTrait.html">LoggerAwareTrait</a></li>
+                                                    <li class="trait"><a href="../classes/Psr.Log.LoggerTrait.html">LoggerTrait</a></li>
+                                                                            <li class="class"><a href="../classes/Psr.Log.AbstractLogger.html">AbstractLogger</a></li>
+                                                    <li class="class"><a href="../classes/Psr.Log.InvalidArgumentException.html">InvalidArgumentException</a></li>
+                                                    <li class="class"><a href="../classes/Psr.Log.LogLevel.html">LogLevel</a></li>
+                                                    <li class="class"><a href="../classes/Psr.Log.NullLogger.html">NullLogger</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1532699768"></a>
+                                <a href="../namespaces/React.html" style="margin-left: 30px; padding-left: 0">React</a>
+            </div>
+            <div id="namespace-1532699768" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1712903806"></a>
+                                <a href="../namespaces/React.Cache.html" style="margin-left: 30px; padding-left: 0">Cache</a>
+            </div>
+            <div id="namespace-1712903806" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/React.Cache.CacheInterface.html">CacheInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/React.Cache.ArrayCache.html">ArrayCache</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-624752355"></a>
+                                <a href="../namespaces/React.Dns.html" style="margin-left: 30px; padding-left: 0">Dns</a>
+            </div>
+            <div id="namespace-624752355" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-813879797"></a>
+                                <a href="../namespaces/React.Dns.Config.html" style="margin-left: 30px; padding-left: 0">Config</a>
+            </div>
+            <div id="namespace-813879797" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/React.Dns.Config.Config.html">Config</a></li>
+                                                    <li class="class"><a href="../classes/React.Dns.Config.FilesystemFactory.html">FilesystemFactory</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1762317196"></a>
+                                <a href="../namespaces/React.Dns.Model.html" style="margin-left: 30px; padding-left: 0">Model</a>
+            </div>
+            <div id="namespace-1762317196" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/React.Dns.Model.HeaderBag.html">HeaderBag</a></li>
+                                                    <li class="class"><a href="../classes/React.Dns.Model.Message.html">Message</a></li>
+                                                    <li class="class"><a href="../classes/React.Dns.Model.Record.html">Record</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-678044601"></a>
+                                <a href="../namespaces/React.Dns.Protocol.html" style="margin-left: 30px; padding-left: 0">Protocol</a>
+            </div>
+            <div id="namespace-678044601" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/React.Dns.Protocol.BinaryDumper.html">BinaryDumper</a></li>
+                                                    <li class="class"><a href="../classes/React.Dns.Protocol.Parser.html">Parser</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-930180165"></a>
+                                <a href="../namespaces/React.Dns.Query.html" style="margin-left: 30px; padding-left: 0">Query</a>
+            </div>
+            <div id="namespace-930180165" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/React.Dns.Query.ExecutorInterface.html">ExecutorInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/React.Dns.Query.CachedExecutor.html">CachedExecutor</a></li>
+                                                    <li class="class"><a href="../classes/React.Dns.Query.Executor.html">Executor</a></li>
+                                                    <li class="class"><a href="../classes/React.Dns.Query.Query.html">Query</a></li>
+                                                    <li class="class"><a href="../classes/React.Dns.Query.RecordBag.html">RecordBag</a></li>
+                                                    <li class="class"><a href="../classes/React.Dns.Query.RecordCache.html">RecordCache</a></li>
+                                                    <li class="class"><a href="../classes/React.Dns.Query.RetryExecutor.html">RetryExecutor</a></li>
+                                                    <li class="class"><a href="../classes/React.Dns.Query.TimeoutException.html">TimeoutException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-799230882"></a>
+                                <a href="../namespaces/React.Dns.Resolver.html" style="margin-left: 30px; padding-left: 0">Resolver</a>
+            </div>
+            <div id="namespace-799230882" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/React.Dns.Resolver.Factory.html">Factory</a></li>
+                                                    <li class="class"><a href="../classes/React.Dns.Resolver.Resolver.html">Resolver</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/React.Dns.BadServerException.html">BadServerException</a></li>
+                                                    <li class="class"><a href="../classes/React.Dns.RecordNotFoundException.html">RecordNotFoundException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1379805377"></a>
+                                <a href="../namespaces/React.EventLoop.html" style="margin-left: 30px; padding-left: 0">EventLoop</a>
+            </div>
+            <div id="namespace-1379805377" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1086369090"></a>
+                                <a href="../namespaces/React.EventLoop.Tick.html" style="margin-left: 30px; padding-left: 0">Tick</a>
+            </div>
+            <div id="namespace-1086369090" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/React.EventLoop.Tick.FutureTickQueue.html">FutureTickQueue</a></li>
+                                                    <li class="class"><a href="../classes/React.EventLoop.Tick.NextTickQueue.html">NextTickQueue</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-11639166"></a>
+                                <a href="../namespaces/React.EventLoop.Timer.html" style="margin-left: 30px; padding-left: 0">Timer</a>
+            </div>
+            <div id="namespace-11639166" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/React.EventLoop.Timer.TimerInterface.html">TimerInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/React.EventLoop.Timer.Timer.html">Timer</a></li>
+                                                    <li class="class"><a href="../classes/React.EventLoop.Timer.Timers.html">Timers</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/React.EventLoop.LoopInterface.html">LoopInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/React.EventLoop.ExtEventLoop.html">ExtEventLoop</a></li>
+                                                    <li class="class"><a href="../classes/React.EventLoop.Factory.html">Factory</a></li>
+                                                    <li class="class"><a href="../classes/React.EventLoop.LibEventLoop.html">LibEventLoop</a></li>
+                                                    <li class="class"><a href="../classes/React.EventLoop.LibEvLoop.html">LibEvLoop</a></li>
+                                                    <li class="class"><a href="../classes/React.EventLoop.StreamSelectLoop.html">StreamSelectLoop</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-420974734"></a>
+                                <a href="../namespaces/React.Promise.html" style="margin-left: 30px; padding-left: 0">Promise</a>
+            </div>
+            <div id="namespace-420974734" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/React.Promise.CancellablePromiseInterface.html">CancellablePromiseInterface</a></li>
+                                                    <li class="interface"><a href="../classes/React.Promise.PromiseInterface.html">PromiseInterface</a></li>
+                                                    <li class="interface"><a href="../classes/React.Promise.PromisorInterface.html">PromisorInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/React.Promise.Deferred.html">Deferred</a></li>
+                                                    <li class="class"><a href="../classes/React.Promise.FulfilledPromise.html">FulfilledPromise</a></li>
+                                                    <li class="class"><a href="../classes/React.Promise.LazyPromise.html">LazyPromise</a></li>
+                                                    <li class="class"><a href="../classes/React.Promise.Promise.html">Promise</a></li>
+                                                    <li class="class"><a href="../classes/React.Promise.RejectedPromise.html">RejectedPromise</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1690141672"></a>
+                                <a href="../namespaces/React.Socket.html" style="margin-left: 30px; padding-left: 0">Socket</a>
+            </div>
+            <div id="namespace-1690141672" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/React.Socket.ConnectionInterface.html">ConnectionInterface</a></li>
+                                                    <li class="interface"><a href="../classes/React.Socket.ServerInterface.html">ServerInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/React.Socket.Connection.html">Connection</a></li>
+                                                    <li class="class"><a href="../classes/React.Socket.ConnectionException.html">ConnectionException</a></li>
+                                                    <li class="class"><a href="../classes/React.Socket.Server.html">Server</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1442558182"></a>
+                                <a href="../namespaces/React.SocketClient.html" style="margin-left: 30px; padding-left: 0">SocketClient</a>
+            </div>
+            <div id="namespace-1442558182" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/React.SocketClient.ConnectorInterface.html">ConnectorInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/React.SocketClient.ConnectionException.html">ConnectionException</a></li>
+                                                    <li class="class"><a href="../classes/React.SocketClient.Connector.html">Connector</a></li>
+                                                    <li class="class"><a href="../classes/React.SocketClient.SecureConnector.html">SecureConnector</a></li>
+                                                    <li class="class"><a href="../classes/React.SocketClient.SecureStream.html">SecureStream</a></li>
+                                                    <li class="class"><a href="../classes/React.SocketClient.StreamEncryption.html">StreamEncryption</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-595021495"></a>
+                                <a href="../namespaces/React.Stream.html" style="margin-left: 30px; padding-left: 0">Stream</a>
+            </div>
+            <div id="namespace-595021495" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/React.Stream.DuplexStreamInterface.html">DuplexStreamInterface</a></li>
+                                                    <li class="interface"><a href="../classes/React.Stream.ReadableStreamInterface.html">ReadableStreamInterface</a></li>
+                                                    <li class="interface"><a href="../classes/React.Stream.WritableStreamInterface.html">WritableStreamInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/React.Stream.Buffer.html">Buffer</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.BufferedSink.html">BufferedSink</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.CompositeStream.html">CompositeStream</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.ReadableStream.html">ReadableStream</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.Stream.html">Stream</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.ThroughStream.html">ThroughStream</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.Util.html">Util</a></li>
+                                                    <li class="class"><a href="../classes/React.Stream.WritableStream.html">WritableStream</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content file">
+                    <nav>
+                                                                    </nav>
+
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+                    <h1><small>vendor/react/cache</small>ArrayCache.php</h1>
+                    <p><em></em></p>
+                    
+
+                    
+                    
+                                        <h2>Classes</h2>
+                    <table class="table table-hover">
+                                            <tr>
+                            <td><a href="../classes/React.Cache.ArrayCache.html">ArrayCache</a></td>
+                            <td><em></em></td>
+                        </tr>
+                                        </table>
+                                    </div>
+
+                <aside class="span4 detailsbar">
+                    <dl>
+                                                    <dt>Package</dt>
+                            <dd><div class="namespace-wrapper"></div></dd>
+                        
+                        
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                                            </table>
+
+                </aside>
+            </div>
+
+            
+            
+        </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label"></h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/vendor/react/cache/ArrayCache.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/Evenement.html">\Evenement</a></li>
+                                                                            <li><a href="../namespaces/Phergie.html">\Phergie</a></li>
+                                                                            <li><a href="../namespaces/Psr.html">\Psr</a></li>
+                                                                            <li><a href="../namespaces/React.html">\React</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on December 13th, 2014 at 11:05.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
